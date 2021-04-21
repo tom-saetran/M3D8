@@ -22,11 +22,94 @@
             </div>
         </nav>
 
-        <div class="container">
+        <div id="post-container" class="container">
             <div class="row">
                 <div class="col-10 col-md-6 mx-auto">
-                    <h1 class="text-center my-5">Back Office</h1>
+                    <h2 class="text-center my-5">POST Office</h2>
+                    <form onsubmit="postData(event)">
+                        <label class="ml-2" for="name">Name</label>
+                        <input id="name" type="text" class="form-control mb-2" placeholder="Name..." />
 
+                        <label class="ml-2" for="description">Description</label>
+                        <input id="description" type="text" class="form-control mb-2" placeholder="Description..." />
+
+                        <label class="ml-2" for="brand">Brand</label>
+                        <input id="brand" type="text" class="form-control mb-2" placeholder="Brand..." />
+
+                        <label class="ml-2" for="imageUrl">Image URL</label>
+                        <input id="imageUrl" type="url" class="form-control mb-2" placeholder="Image URL..." />
+
+                        <label class="ml-2" for="price">Price</label>
+                        <input id="price" type="number" class="form-control mb-2" placeholder="Price..." step="0.01" />
+
+                        <div class="d-flex">
+                            <input type="submit" class="btn btn-primary w-50 mx-auto" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="put-container" class="container">
+            <div class="row">
+                <div class="col-10 col-md-6 mx-auto">
+                    <h2 class="text-center my-5">Put Office</h2>
+                    <form onsubmit="postData(event)">
+                        <label class="ml-2" for="name">Name</label>
+                        <input id="name" type="text" class="form-control mb-2" placeholder="Name..." />
+
+                        <label class="ml-2" for="description">Description</label>
+                        <input id="description" type="text" class="form-control mb-2" placeholder="Description..." />
+
+                        <label class="ml-2" for="brand">Brand</label>
+                        <input id="brand" type="text" class="form-control mb-2" placeholder="Brand..." />
+
+                        <label class="ml-2" for="imageUrl">Image URL</label>
+                        <input id="imageUrl" type="url" class="form-control mb-2" placeholder="Image URL..." />
+
+                        <label class="ml-2" for="price">Price</label>
+                        <input id="price" type="number" class="form-control mb-2" placeholder="Price..." step="0.01" />
+
+                        <div class="d-flex">
+                            <input type="submit" class="btn btn-primary w-50 mx-auto" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="get-container" class="container">
+            <div class="row">
+                <div class="col-10 col-md-6 mx-auto">
+                    <h2 class="text-center my-5">Get Office</h2>
+                    <form onsubmit="postData(event)">
+                        <label class="ml-2" for="name">Name</label>
+                        <input id="name" type="text" class="form-control mb-2" placeholder="Name..." />
+
+                        <label class="ml-2" for="description">Description</label>
+                        <input id="description" type="text" class="form-control mb-2" placeholder="Description..." />
+
+                        <label class="ml-2" for="brand">Brand</label>
+                        <input id="brand" type="text" class="form-control mb-2" placeholder="Brand..." />
+
+                        <label class="ml-2" for="imageUrl">Image URL</label>
+                        <input id="imageUrl" type="url" class="form-control mb-2" placeholder="Image URL..." />
+
+                        <label class="ml-2" for="price">Price</label>
+                        <input id="price" type="number" class="form-control mb-2" placeholder="Price..." step="0.01" />
+
+                        <div class="d-flex">
+                            <input type="submit" class="btn btn-primary w-50 mx-auto" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="delete-container" class="container">
+            <div class="row">
+                <div class="col-10 col-md-6 mx-auto">
+                    <h2 class="text-center my-5">Delete Office</h2>
                     <form onsubmit="postData(event)">
                         <label class="ml-2" for="name">Name</label>
                         <input id="name" type="text" class="form-control mb-2" placeholder="Name..." />
@@ -55,6 +138,7 @@
             const endpoint = "https://striveschool-api.herokuapp.com/api/product/"
 
             const postData = async event => {
+                // Stops the submit button from refreshing the page
                 event.preventDefault()
 
                 const userData = {
@@ -67,7 +151,18 @@
 
                 try {
                     const response = await fetch(endpoint, {
-                        method: "POST", // "GET", "POST", "PUT", "DELETE"
+                        method: "POST",
+                        /*
+                         *  C - Create | Re - Representational |
+                         *  R - Read   | E                     |
+                         *  U - Update | S  - State            |
+                         *  D - Delete | T  - Transfer         |
+                         *
+                         * POST   - CREATE the requested data
+                         * GET    - READ   the requested data
+                         * PUT    - UPDATE the requested data
+                         * DELETE - DELETE the requested data
+                         */
                         headers: {
                             "Content-Type": "application/json",
                             Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgwMGU5Y2IxZjBmYjAwMTVkOTE3MGMiLCJpYXQiOjE2MTkwMDUwODQsImV4cCI6MTYyMDIxNDY4NH0.g7jMheL_T_9M884BUoPCOuoZKlexshqRDDspOxxUOwQ"
